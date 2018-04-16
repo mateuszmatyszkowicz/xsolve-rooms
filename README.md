@@ -1,5 +1,11 @@
-# xsolve-rooms
+# XSolve Rooms
 App for accessing rooms information in XSolve
+
+Features:
+
+* Login with organization Google account to access Free / All rooms information
+* Tap on a room to see meetings for current day
+* Building change (Gliwice or Warsaw)
 
 Scan with Expo 
 

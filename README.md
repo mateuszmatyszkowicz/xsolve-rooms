@@ -14,6 +14,7 @@ TODO:
 * Screen with important meetings for 'me'
 * Search
 * Push notifications
+* Unit tests
 
 # Scan with Expo 
 

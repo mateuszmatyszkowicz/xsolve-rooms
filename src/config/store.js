@@ -6,6 +6,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import { AsyncStorage } from 'react-native';
 import axios from 'axios';
 import { NavigationActions } from 'react-navigation';
+import { createBlacklistFilter } from 'redux-persist-transform-filter';
 
 import auth from '../redux/auth';
 import nav from '../redux/nav';
@@ -14,9 +15,18 @@ import events from '../redux/events';
 import context from '../redux/context';
 import { reduxNavigationMiddleware } from '../components/ReduxNavigator';
 
+// auth is persited without 'loading' key.
+const authTransform = createBlacklistFilter(
+  'auth',
+  ['loading'],
+);
+
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
+  transforms: [
+    authTransform,
+  ],
   blacklist: ['nav'],
 };
 

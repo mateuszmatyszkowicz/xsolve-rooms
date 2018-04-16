@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\barte\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add react-native-timeline-listview
+  C:\Program Files\nodejs\node.exe C:\Users\barte\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add redux-persist-transform-filter
 
 PATH: 
-  C:\Python27\;C:\Python27\Scripts;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files\Java\jdk1.8.0_162\bin;C:\Program Files\Git\cmd;C:\Users\barte\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft VS Code\bin;C:\Users\barte\AppData\Roaming\npm;c:\Users\barte\AppData\Local\Android\Sdk\tools\;c:\Users\barte\AppData\Local\Android\Sdk\platform-tools\;C:\Users\barte\AppData\Local\atom\bin
+  C:\Program Files\Microsoft MPI\Bin\;C:\Python27\;C:\Python27\Scripts;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs\;C:\Program Files\Java\jdk1.8.0_162\bin;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Users\barte\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft VS Code\bin;C:\Users\barte\AppData\Roaming\npm;c:\Users\barte\AppData\Local\Android\Sdk\tools\;c:\Users\barte\AppData\Local\Android\Sdk\platform-tools\;C:\Users\barte\AppData\Local\atom\bin
 
 Yarn version: 
   1.3.2
@@ -5815,4 +5815,4 @@ Lockfile:
       yargs-parser "^7.0.0"
 
 Trace: 
-  Error: EPERM: operation not permitted, unlink 'C:\ReactNative\xsolverooms\node_modules\babel-core\node_modules\.bin'
+  Error: EPERM: operation not permitted, unlink 'C:\ReactNative\xsolve-rooms\node_modules\babel-core\node_modules\.bin'

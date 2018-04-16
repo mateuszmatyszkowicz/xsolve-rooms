@@ -54,8 +54,12 @@ class Login extends Component {
 }
 
 Login.propTypes = {
-  loading: PropTypes.bool.isRequired,
+  loading: PropTypes.bool,
   login: PropTypes.func.isRequired,
+};
+
+Login.defaultProps = {
+  loading: false,
 };
 
 const mapStateToProps = state => ({

@@ -1,5 +1,3 @@
-import { NavigationActions } from 'react-navigation';
-
 import { Firebase } from '../helpers';
 
 export const AUTH = 'AUTH';
@@ -35,10 +33,6 @@ export const login = () => dispatch => dispatch({
   type: AUTH,
   async payload() {
     const tokens = await Firebase.login();
-
-    const appNavigationAction = NavigationActions.navigate({ routeName: 'App' });
-    dispatch(appNavigationAction);
-
     return tokens;
   },
 });

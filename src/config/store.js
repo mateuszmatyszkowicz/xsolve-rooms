@@ -13,6 +13,9 @@ import nav from '../redux/nav';
 import rooms from '../redux/rooms';
 import events from '../redux/events';
 import context from '../redux/context';
+
+import loginMiddleware from '../redux/middleware/login';
+
 import { reduxNavigationMiddleware } from '../components/ReduxNavigator';
 
 // auth is persited without 'loading' key.
@@ -46,6 +49,7 @@ export const store = createStore(
     thunk,
     reduxPromise(),
     reduxNavigationMiddleware,
+    loginMiddleware,
     logger,
   ])),
 );

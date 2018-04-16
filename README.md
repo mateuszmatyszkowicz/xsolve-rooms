@@ -7,7 +7,7 @@ Features:
 * Tap on a room to see meetings for current day
 * Building change (Gliwice or Warsaw)
 
-TODO:
+Todo:
 
 * One tap room reservation (with proper handling of time in respect of other meetings that can happen that day)
 * Room reservation check (if not confirmed reservation will be deleted)

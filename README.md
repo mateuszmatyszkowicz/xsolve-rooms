@@ -14,7 +14,7 @@ Todo:
 * Screen with important meetings for 'me'
 * Live response to Google Calendar changes
 * Search
-* Push notifications (with subscitpion to any room, basic 'Notify me when this room is free')
+* Push notifications (with subscription to any room, basic 'Notify me when this room is free')
 * Unit tests
 
 # Scan with Expo 

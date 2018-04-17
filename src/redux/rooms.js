@@ -1,4 +1,4 @@
-import { Rooms, FreeBusy } from '../helpers';
+import { Rooms, FreeBusy, errorHelper } from '../helpers';
 
 const ROOMS = 'ROOMS';
 
@@ -35,4 +35,4 @@ export const getFreeRooms = () => dispatch => dispatch({
     const freeRooms = await FreeBusy.processFreeBusy(allRooms, freeBusy);
     return freeRooms;
   },
-}).catch(() => {});
+}).catch(error => errorHelper(error));

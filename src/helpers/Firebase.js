@@ -11,6 +11,8 @@ const scopes = [
   'https://www.googleapis.com/auth/admin.directory.resource.calendar.readonly',
   'https://www.googleapis.com/auth/calendar.readonly'];
 
+const domainRegEx = /^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(xsolve|chilid)\.pl$/;
+
 class Firebase {
   static auth() {
   }
@@ -22,14 +24,21 @@ class Firebase {
 
   static async login() {
     try {
-      const {
-        idToken, accessToken, refreshToken, type,
-      } = await Google.logInAsync({
+      const auth = await Google.logInAsync({
         androidClientId,
         scopes,
       });
 
+      const {
+        idToken, accessToken, refreshToken, type,
+      } = auth;
+
       if (type === 'success') {
+        const emailValid = domainRegEx.test(auth.user.email);
+        if (!emailValid) {
+          throw new Error('Access not granted.');
+        }
+
         const credential = firebase.auth.GoogleAuthProvider.credential(idToken, accessToken);
         await firebase.auth().signInWithCredential(credential);
 
@@ -39,7 +48,7 @@ class Firebase {
         return { accessToken, refreshToken, expiresIn };
       }
 
-      throw new Error();
+      throw new Error('Authorization failed.');
     } catch (error) {
       throw error;
     }

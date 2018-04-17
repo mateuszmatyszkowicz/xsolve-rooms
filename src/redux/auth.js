@@ -1,4 +1,4 @@
-import { Firebase } from '../helpers';
+import { Firebase, errorHelper } from '../helpers';
 
 export const AUTH = 'AUTH';
 
@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
       };
 
     case `${AUTH}_REJECTED`:
-      return { ...state, loading: false, error: action.payload };
+      return { ...state, loading: false, error: action.payload.message };
 
     case `${AUTH}_TOKEN_REFRESH`:
       return { ...state, tokens: { ...state.tokens, ...action.payload } };
@@ -35,4 +35,4 @@ export const login = () => dispatch => dispatch({
     const tokens = await Firebase.login();
     return tokens;
   },
-});
+}).catch(error => errorHelper(error));

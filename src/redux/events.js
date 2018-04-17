@@ -1,4 +1,4 @@
-import { Events } from '../helpers';
+import { Events, errorHelper } from '../helpers';
 
 const EVENTS = 'EVENTS';
 
@@ -35,4 +35,4 @@ export const getRoomEventsById = roomId => dispatch => dispatch({
     const events = await Events.getEventsByRoomId(roomId);
     return { id: roomId, events };
   },
-}).catch(() => {});
+}).catch(errorHelper);

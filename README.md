@@ -12,8 +12,9 @@ Todo:
 * One tap room reservation (with proper handling of time in respect of other meetings that can happen that day)
 * Room reservation check (if not confirmed reservation will be deleted)
 * Screen with important meetings for 'me'
+* Live response to Google Calendar changes
 * Search
-* Push notifications
+* Push notifications (with subscitpion to any room, basic 'Notify me when this room is free')
 * Unit tests
 
 # Scan with Expo 

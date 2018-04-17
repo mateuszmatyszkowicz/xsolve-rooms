@@ -13,6 +13,7 @@ Todo:
 * Room reservation check (if not confirmed reservation will be deleted)
 * Screen with important meetings for 'me'
 * Live response to Google Calendar changes
+* Proper 'back' button handling on Android
 * Search
 * Push notifications (with subscription to any room, basic 'Notify me when this room is free')
 * Unit tests

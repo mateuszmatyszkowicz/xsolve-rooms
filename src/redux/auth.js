@@ -35,4 +35,4 @@ export const login = () => dispatch => dispatch({
     const tokens = await Firebase.login();
     return tokens;
   },
-}).catch(error => errorHelper(error));
+}).catch(errorHelper);

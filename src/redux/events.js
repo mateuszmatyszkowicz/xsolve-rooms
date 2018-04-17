@@ -35,4 +35,4 @@ export const getRoomEventsById = roomId => dispatch => dispatch({
     const events = await Events.getEventsByRoomId(roomId);
     return { id: roomId, events };
   },
-}).catch(error => errorHelper(error));
+}).catch(errorHelper);

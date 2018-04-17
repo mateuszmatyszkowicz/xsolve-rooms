@@ -35,4 +35,4 @@ export const getFreeRooms = () => dispatch => dispatch({
     const freeRooms = await FreeBusy.processFreeBusy(allRooms, freeBusy);
     return freeRooms;
   },
-}).catch(error => errorHelper(error));
+}).catch(errorHelper);

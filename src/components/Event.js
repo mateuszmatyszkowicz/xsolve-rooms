@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import { ListItem, Body, Text } from 'native-base';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 
 class Event extends Component {
   renderMeetingTimeframe() {
     const { start, end } = this.props.item;
     if (start) {
-      return <Text note>{start} - {end}</Text>;
+      return <Text note>{moment(start).format('HH:mm')} - {moment(end).format('HH:mm')}</Text>;
     }
     return <View />;
   }

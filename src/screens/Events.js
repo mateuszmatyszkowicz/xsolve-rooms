@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, View } from 'react-native';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import TimeSlot from '../../src/components/TimeSlot';
 import Event from '../../src/components/Event';
 import { getRoomEventsById } from '../redux/events';
 
@@ -26,7 +27,10 @@ class Events extends Component {
         data={this.props.events}
         keyExtractor={item => item.start + item.summary}
         renderItem={({ item }) => (
-          <Event item={item} />
+          <View>
+            <TimeSlot diff={item.diff} />
+            <Event item={item} />
+          </View>
         )}
       />
     );

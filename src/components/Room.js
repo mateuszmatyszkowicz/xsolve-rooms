@@ -29,7 +29,7 @@ class Room extends Component {
   render() {
     const { resourceName } = this.props.item;
     return (
-      <ListItem button onPress={this.onRoomPress}>
+      <ListItem onPress={this.onRoomPress}>
         <Body>
           <Text>{resourceName}</Text>
           {this.renderNextMeetingInfo()}

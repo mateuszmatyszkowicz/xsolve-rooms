@@ -23,7 +23,12 @@ class Events {
       const events = _.reduce(response.data.items, (result, item) => {
         const { start, end, summary } = item;
         if (start) {
-          result.push({ start: moment(start.dateTime).format('HH:mm'), end: moment(end.dateTime).format('HH:mm'), summary });
+          const priorEvent = result.slice(-1)[0];
+          const event = { start: start.dateTime, end: end.dateTime, summary };
+          if (priorEvent) {
+            event.diff = moment(event.start).diff(priorEvent.end, 'minutes');
+          }
+          result.push(event);
         }
         return result;
       }, []);

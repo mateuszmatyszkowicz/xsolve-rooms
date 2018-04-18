@@ -48,9 +48,9 @@ export default class App extends React.Component {
               type: 'AUTH_TOKEN_REFRESH',
               payload: tokens,
             });
-
-            this.state.tokenRefreshInProgress = false;
           }
+
+          this.state.tokenRefreshInProgress = false;
         }
         return config;
       },

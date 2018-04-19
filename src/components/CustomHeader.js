@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { Constants } from 'expo';
-import { Header, Body, Picker } from 'native-base';
+import { Header, Body, Picker, Icon } from 'native-base';
 import PropTypes from 'prop-types';
 
 import { setContext } from '../redux/context';
+
+const styles = StyleSheet.create({
+  container: {
+    ...Platform.select({
+      android: {
+        paddingTop: Constants.statusBarHeight,
+      },
+    }),
+  },
+});
 
 class CustomHeader extends Component {
   constructor() {
@@ -19,12 +29,13 @@ class CustomHeader extends Component {
 
   render() {
     return (
-      <View style={{ paddingTop: Constants.statusBarHeight }} >
-        <Header style={{ backgroundColor: 'white' }}>
+      <View style={styles.container}>
+        <Header>
           <Body>
             <Picker
               style={{ width: 150 }}
               mode="dropdown"
+              iosIcon={<Icon name="ios-arrow-down-outline" />}
               selectedValue={this.props.context}
               onValueChange={this.contextChanged}
             >

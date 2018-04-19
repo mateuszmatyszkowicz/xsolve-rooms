@@ -6,6 +6,7 @@ import moment from 'moment';
 import { config } from '../config/firebase';
 
 const androidClientId = '283946213358-26mljge2fer267u1afr2g8lghlrd98r6.apps.googleusercontent.com';
+const iosClientId = '283946213358-7b3gvmsviagit8jv1lpkonitq2rbmtbl.apps.googleusercontent.com';
 const scopes = [
   'email',
   'https://www.googleapis.com/auth/admin.directory.resource.calendar.readonly',
@@ -26,6 +27,7 @@ class Firebase {
     try {
       const auth = await Google.logInAsync({
         androidClientId,
+        iosClientId,
         scopes,
       });
 

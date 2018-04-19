@@ -15,6 +15,13 @@ const styles = StyleSheet.create({
       },
     }),
   },
+  header: {
+    ...Platform.select({
+      android: {
+        backgroundColor: 'white',
+      },
+    }),
+  },
 });
 
 class CustomHeader extends Component {
@@ -30,7 +37,7 @@ class CustomHeader extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header>
+        <Header style={styles.header}>
           <Body>
             <Picker
               style={{ width: 150 }}

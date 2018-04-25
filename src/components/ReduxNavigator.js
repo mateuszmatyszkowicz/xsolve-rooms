@@ -1,6 +1,7 @@
 import React from 'react';
+import { BackHandler, Platform } from 'react-native';
 import { connect } from 'react-redux';
-import { addNavigationHelpers } from 'react-navigation';
+import { addNavigationHelpers, NavigationActions } from 'react-navigation';
 import {
   createReduxBoundAddListener,
   createReactNavigationReduxMiddleware,
@@ -16,11 +17,32 @@ export const reduxNavigationMiddleware = createReactNavigationReduxMiddleware(
 const addListener = createReduxBoundAddListener('root');
 
 class App extends React.Component {
+  componentDidMount() {
+    if (Platform.OS === 'android') {
+      BackHandler.addEventListener('hardwareBackPress', this.onBackPress);
+    }
+  }
+  componentWillUnmount() {
+    if (Platform.OS === 'android') {
+      BackHandler.removeEventListener('hardwareBackPress', this.onBackPress);
+    }
+  }
+  onBackPress = () => {
+    const { dispatch, nav } = this.props;
+    if (nav.index === 0) {
+      return false;
+    }
+    dispatch(NavigationActions.back());
+    return true;
+  }
+
   render() {
+    const { dispatch, nav } = this.props;
+
     return (
       <Navigation navigation={addNavigationHelpers({
-        dispatch: this.props.dispatch,
-        state: this.props.nav,
+        dispatch,
+        state: nav,
         addListener,
       })}
       />

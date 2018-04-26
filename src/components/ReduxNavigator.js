@@ -29,7 +29,9 @@ class App extends React.Component {
   }
   onBackPress = () => {
     const { dispatch, nav } = this.props;
-    if (nav.index === 0) {
+    // Check that is the main screen
+    const { index, routes } = nav.routes[nav.index];
+    if (routes[index].index === 0) {
       return false;
     }
     dispatch(NavigationActions.back());

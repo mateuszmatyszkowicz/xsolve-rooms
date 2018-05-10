@@ -30,9 +30,8 @@ class Firebase {
         iosClientId,
         scopes,
       });
-
       const {
-        idToken, accessToken, refreshToken, type,
+        idToken, accessToken, refreshToken, type, user,
       } = auth;
 
       if (type === 'success') {
@@ -47,7 +46,7 @@ class Firebase {
         axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
 
         const expiresIn = moment().add(3600, 'seconds').valueOf();
-        return { accessToken, refreshToken, expiresIn };
+        return { accessToken, refreshToken, expiresIn, user };
       }
 
       throw new Error('Authorization failed.');

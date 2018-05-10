@@ -5,6 +5,7 @@ import { StackNavigator, TabNavigator, SwitchNavigator, TabBarBottom } from 'rea
 
 import AllRooms from '../screens/Rooms/All';
 import FreeRooms from '../screens/Rooms/Free';
+import Dashboard from '../screens/Dashboard';
 import Login from '../screens/Login';
 import Events from '../screens/Events';
 import CustomHeader from './CustomHeader';
@@ -15,6 +16,7 @@ const AuthStack = StackNavigator({
 
 const TabNav = TabNavigator({
   FreeRooms,
+  Dashboard,
   AllRooms,
 }, {
   navigationOptions: ({ navigation }) => ({
@@ -22,10 +24,19 @@ const TabNav = TabNavigator({
       const { routeName } = navigation.state;
 
       let iconName;
-      if (routeName === 'FreeRooms') {
-        iconName = 'ios-happy';
-      } else if (routeName === 'AllRooms') {
-        iconName = 'ios-list-box';
+
+      switch (routeName) {
+        case 'FreeRooms':
+          iconName = 'ios-happy';
+          break;
+        case 'AllRooms':
+          iconName = 'ios-list-box';
+          break;
+        case 'Dashboard':
+          iconName = 'ios-contact-outline';
+          break;
+        default:
+          iconName = 'ios-happy';
       }
 
       return <Ionicons name={iconName} size={25} color={tintColor} />;

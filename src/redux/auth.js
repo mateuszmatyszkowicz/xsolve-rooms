@@ -4,6 +4,7 @@ export const AUTH = 'AUTH';
 
 const initialState = {
   tokens: {},
+  user: {},
   loading: false,
   error: {},
 };
@@ -15,7 +16,11 @@ export default (state = initialState, action) => {
 
     case `${AUTH}_FULFILLED`:
       return {
-        ...state, tokens: action.payload, error: {}, loading: false,
+        ...state,
+        tokens: action.payload.tokens,
+        user: action.payload.user,
+        error: {},
+        loading: false,
       };
 
     case `${AUTH}_REJECTED`:
@@ -32,7 +37,7 @@ export default (state = initialState, action) => {
 export const login = () => dispatch => dispatch({
   type: AUTH,
   async payload() {
-    const tokens = await Firebase.login();
-    return tokens;
+    const { user, ...tokens } = await Firebase.login();
+    return { user, tokens };
   },
 }).catch(errorHelper);

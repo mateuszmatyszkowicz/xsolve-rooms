@@ -13,11 +13,11 @@ class Event extends Component {
   }
 
   render() {
-    const { summary } = this.props.item;
+    const { summary, location } = this.props.item;
     return (
       <ListItem>
         <Body>
-          <Text>{summary}</Text>
+          <Text>{summary}{this.props.showLocation && location && ` - ${location}`}</Text>
           {this.renderMeetingTimeframe()}
         </Body>
       </ListItem>
@@ -29,15 +29,20 @@ Event.propTypes = {
   item: PropTypes.shape({
     start: PropTypes.string,
     end: PropTypes.string,
-    summary: PropTypes.string.isRequired,
+    summary: PropTypes.string,
+    location: PropTypes.string,
   }),
+  showLocation: PropTypes.bool,
 };
 
 Event.defaultProps = {
   item: {
     start: '',
     end: '',
+    location: '',
+    summary: 'No title',
   },
+  showLocation: false,
 };
 
 export default Event;

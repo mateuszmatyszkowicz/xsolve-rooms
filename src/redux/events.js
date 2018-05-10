@@ -36,3 +36,18 @@ export const getRoomEventsById = roomId => dispatch => dispatch({
     return { id: roomId, events };
   },
 }).catch(errorHelper);
+
+export const getMyEvents = id => (dispatch, getState) => dispatch({
+  type: EVENTS,
+  async payload() {
+    let { rooms } = getState();
+    rooms = rooms.data.map(room => room.resourceEmail);
+    const events = await Events.getEventsByRoomId(id);
+
+    const myEvents = events.filter(event =>
+      event.attendees.find(attendee =>
+        attendee.resource && rooms.includes(attendee.email)));
+
+    return { id, events: myEvents };
+  },
+}).catch(errorHelper);

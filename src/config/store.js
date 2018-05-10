@@ -33,6 +33,12 @@ const persistConfig = {
   blacklist: ['nav'],
 };
 
+let composeEncancers = compose;
+
+if (__DEV__) {
+  composeEncancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+}
+
 const reducers = combineReducers({
   auth,
   nav,
@@ -45,12 +51,12 @@ const persistedReducers = persistReducer(persistConfig, reducers);
 
 export const store = createStore(
   persistedReducers,
-  compose(applyMiddleware(...[
+  composeEncancers(applyMiddleware(...[
     thunk,
     reduxPromise(),
     reduxNavigationMiddleware,
     loginMiddleware,
-    logger,
+    // logger,
   ])),
 );
 
